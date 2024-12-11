@@ -14,6 +14,7 @@ This project was developed using the Basys3 FPGA development board and Vivado de
 
 The image below is an example of my Vivado project summary window:
 
+<img src="">
 <img src="https://raw.githubusercontent.com/melgineer/fpga-vga-verilog/main/docs/assets/images/VGAPrjSum.png">
 
 ### **Template Code**
