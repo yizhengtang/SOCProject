@@ -81,7 +81,7 @@ As I said my plan was to design a Mercedes Benz Logo, but then the result is kin
 <img src="docs/assets/images/code1.png">
 <img src="docs/assets/images/code2.png">
 
-**Ring**
+## **Ring**
 
 First of I set the screen width and screen height as 640 and 480, which matches the display resolution. Then I let the circle diameter as 480 pixels, which is the height of the screen. This will make the ring size fit the vertical height of the screen height, since the screen is rather wide (width > height), so I don't have to worry about the width of the circle as it will always be within the max width of the display. 
 
@@ -103,7 +103,11 @@ For the shade of the circle, I just applied the same rule for it, and just chang
 
 **This is the image of the ring that i draw**
 
+<img src="docs/assets/images/circlescreen.jpg">
 
+## **Triangle** 
+
+For the star inside the Mercedes Benz Logo, it can be break down into three triangles, one is at 0 degrees, the second one is at 120 and the third one is at 240 degrees of the circle. To draw a triangle in verilog, my plan was to use basic line equations to determine if a pixel lies within the triangle boundaries. 
 
 
 ### **Simulation**
