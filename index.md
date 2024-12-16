@@ -97,7 +97,14 @@ To draw the ring, I used ChatGPT to study about the circle and come up with an i
 
 <img src="docs/assets/images/circle.png">
 
-The sharp edge of the triangle points to the center of the circle. Imagine rotating the triangle in one direction for 360 degrees, it will form a circle where the hypotenuse will be the radius of the circle.  
+The sharp edge of the triangle points to the center of the circle. Imagine rotating the triangle in one direction for 360 degrees, it will form a circle where the hypotenuse will be the radius of the circle. To implement this concept to draw a circle, I change the formula into **$(x-h)^2 + (y-k)^2 = r^2$**. This is the equation of a circle in Cartesian coordinates, which is pretty much the same as the triangle formula. In this formula, **(h,k)** is the center of the circle, and then the r will be the radius of the circle. In my code, I have (row-CENTER_X) and (col-CENTER_Y) to indicate the relative distance of the current pixel from the center of the circle. Since I have the **centerline** and the **circle_radius** which sets up the boundaries for the outer ring, and by using && to combine both conditions so that the pixel must be within the **circle_radius** and the **center line**. 
+
+For the shade of the circle, I just applied the same rule for it, and just change the upper and lower boundaries into **inner_circle** to **center line**. 
+
+**This is the image of the ring that i draw**
+
+
+
 
 ### **Simulation**
 Show how you simulated your own design. Are there any things to note? Demonstrate your understanding. Add a screenshot. Guideline: 1-2 short paragraphs.
