@@ -97,6 +97,7 @@ To draw the ring, I used ChatGPT to study about the circle and come up with an i
 
 <img src="docs/assets/images/circle.png">
 
+The sharp edge of the triangle points to the center of the circle. Imagine rotating the triangle in one direction for 360 degrees, it will form a circle where the hypotenuse will be the radius of the circle.  
 
 ### **Simulation**
 Show how you simulated your own design. Are there any things to note? Demonstrate your understanding. Add a screenshot. Guideline: 1-2 short paragraphs.
