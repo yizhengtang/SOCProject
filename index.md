@@ -74,10 +74,29 @@ After running the simulation, it then will proceed to the next step, which is th
 So for my VGA design, initially I came up with an idea of making a Mercedes Benz Logo, as I am a big fan of Mercedes and also with the knowledge of geometry such as drawing circle and triangle using mathematical formula. So the mercedes logo can be break down into two parts, one is the ring outside and inside will be three triangle that is on 0 degree, 120 and 240 degrees around the center point of the ring. This will be a still image, so from the code template, I won't be needing the state machine and the counter to switch between states. Instead, i only need mathematical calculation for different shapes and also the color of the shapes to draw this logo.
 ### **Code Adaptation**
 
-**The code below is my full code for the design
+As I said my plan was to design a Mercedes Benz Logo, but then the result is kind of disappointing, for some reason when I was trying to draw the triangle it won't work. But I have the calculation and the concept of drawing the triangle which I will later explain further in my blog.
+
+**The code below is my full code for the design**
+
+<img src="docs/assets/images/code1.png">
+<img src="docs/assets/images/code2.png">
+
 **Ring**
 
 First of I set the screen width and screen height as 640 and 480, which matches the display resolution. Then I let the circle diameter as 480 pixels, which is the height of the screen. This will make the ring size fit the vertical height of the screen height, since the screen is rather wide (width > height), so I don't have to worry about the width of the circle as it will always be within the max width of the display. 
+
+Since I am doing a still image, I won't be needing the register for the color red green blue, so instead of red_reg, green_reg and blue_reg, I changed them into just red, green and blue.
+
+Next up is to draw the circle. First I have to set the center point of the circle to (SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2), which will be (320, 240) that locates at the center of the screen. After that will be the radius of the circle, This is crucial as it is required further on for drawing the circle. The value of the radius is simply just diameter / 2. I also added two parameters which is the centerline and the innercircle, the reason why I added these two is to draw another small circle inside that looks like the **shade** of the ring. By adding centerline and innercircle, the big ring will be ranging from centerline to circle radius, and the shade ring will be ranging from inner circle to centerline, the centerline is the line where the two circle connects, and two of the rings will share the same width. 
+
+**The image below shows the ring of the logo**
+
+To draw the ring, I used ChatGPT to study about the circle and come up with an idea of using the equation of triangle, which is **$x^2 + y^2 = r^2$**. The X and Y represents the X and Y axis of a right-angled triangle, the r will then be the hypotenuse of the triangle. 
+
+**The image below gives a better visualization of the formula**
+
+
+
 ### **Simulation**
 Show how you simulated your own design. Are there any things to note? Demonstrate your understanding. Add a screenshot. Guideline: 1-2 short paragraphs.
 ### **Synthesis**
