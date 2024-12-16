@@ -9,6 +9,7 @@ Welcome to my FPGA VGA Driver Project. For this project I tried to design and im
 
 ## **Template VGA Design**
 ### **Project Set-Up**
+
 This project was developed using the Basys3 FPGA development board and Vivado design software. The setup includes creating a VGA driver capable of rendering pixels on a 640x480 resolution display. The design flow involved writing Verilog code for pixel generation, simulating the design, synthesizing the hardware description, and implementing it on the Basys3 board. Since this project requires a Basys3 board and Vivado can't work properly with OneDrive, we can only work on this project during the lab time. For each session, I have to make sure i save a copy of my code to prevent any accidents such as code disappearing.
 
 
@@ -26,6 +27,7 @@ The image below is an example of my Vivado project summary window:
 This image above shows all the design sources including VGATop.v, VGASync.v, and VGAColorCyle.v. Now we look into the VGAColorCycle file that contains the code that generates color cycle.
 
 **Color Cycle**
+
 This color cycle code is provided that generates a color cycle design, I used this code to develop some basic understanding of the VGA designs that may help me later on my project.
 
 From this code, we can see that it is using the concept of state machine to perform color cycle action by changing the state, in this case which is the color whenever the counter counts to a specific time count. In the case statement, there are different cases (Black, Red, Yellow, Green...). For each cases, the line color <= will set the color into different binaries that represent different colors, for example black will be 12 "0"s, so on and so for. To perform state transition, it will update the state_next value at the end of each cases.
@@ -47,16 +49,35 @@ The top one should be clock signal. The waveform shows a consistent 25Mhz clock,
 
 **Synchronization Signals (hSync, vSync)**
 
+**hSync (Horizontal Sync)**
+
+The horizontal sync controls the **Horizontal Scanning** of pixels (from left to right across each row). This signal alternates between **high** and **low** to indicate the end of each row.
+
+**vSync (Vertical Sync)**
+
+This signal controls the **Vertical Scanning** of rows (from top to bottom across the screen). This is similar to **hSync**, it alternates between **high** and **low** to mark the end of a frame.
+
+**Row and Column Counters (row and col)**
+
+**Row**
+
+This represents the current vertical posiition of the pixel being drawn on the screen, in this case 480 will be 0 to 479.
+
+**Column** 
+
+This represents the current horizontal posiiton of the pixel being drawn on the screen , 640 pixels will be 0 to 639.
 
 ### **Synthesis**
-Describe the synthesis and implementation processes. Consider including 1/2 useful screenshot(s). Guideline: 1/2 short paragraphs.
-### **Demonstration**
-Perhaps add a picture of your demo. Guideline: 1/2 sentences.
+After running the simulation, it then will proceed to the next step, which is the synthesis. Synthesis maps the code to a library of signal gates available. The synthesis report shows the resource utilization for my updated design. After that it will proceed to implementation where it confirms that the design fits within the FPGA's constraints and timing requirements.
 
 ## **My VGA Design Edit**
-Introduce your own design idea. Consider how complex/achievabble this might be or otherwise. Reference any research you do online (use hyperlinks).
+So for my VGA design, initially I came up with an idea of making a Mercedes Benz Logo, as I am a big fan of Mercedes and also with the knowledge of geometry such as drawing circle and triangle using mathematical formula. So the mercedes logo can be break down into two parts, one is the ring outside and inside will be three triangle that is on 0 degree, 120 and 240 degrees around the center point of the ring. This will be a still image, so from the code template, I won't be needing the state machine and the counter to switch between states. Instead, i only need mathematical calculation for different shapes and also the color of the shapes to draw this logo.
 ### **Code Adaptation**
-Briefly show how you changed the template code to display a different image. Demonstrate your understanding. Guideline: 1-2 short paragraphs.
+
+**The code below is my full code for the design
+**Ring**
+
+First of I set the screen width and screen height as 640 and 480, which matches the display resolution. Then I let the circle diameter as 480 pixels, which is the height of the screen. This will make the ring size fit the vertical height of the screen height, since the screen is rather wide (width > height), so I don't have to worry about the width of the circle as it will always be within the max width of the display. 
 ### **Simulation**
 Show how you simulated your own design. Are there any things to note? Demonstrate your understanding. Add a screenshot. Guideline: 1-2 short paragraphs.
 ### **Synthesis**
