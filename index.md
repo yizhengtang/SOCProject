@@ -94,7 +94,7 @@ Next up is to draw the circle. First I have to set the center point of the circl
 To draw the ring, I used ChatGPT to study about the circle and come up with an idea of using the equation of triangle, which is **$x^2 + y^2 = r^2$**. The X and Y represents the X and Y axis of a right-angled triangle, the r will then be the hypotenuse of the triangle. 
 
 **The image below gives a better visualization of the formula**
-
+<img src="docs/assets/images/circle.png">
 
 
 ### **Simulation**
